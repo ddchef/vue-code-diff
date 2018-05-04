@@ -11,7 +11,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css'
 import 'diff2html/dist/diff2html.css'
 export default {
-  name: 'app',
+  name: 'code-diff',
   props: {
     oldString: {
       type: String,
@@ -42,7 +42,7 @@ export default {
   computed: {
   },
   created () {
-    let args = ['', this.oldString, this.newString, '', '', {context: 9}]
+    let args = ['', this.oldString, this.newString, '', '', {context: this.context}]
     let dd = createPatch(...args)
     let outStr = Diff2Html.getJsonFromDiff(dd, {inputFormat: 'diff', outputFormat: 'side-by-side', showFiles: false, matching: 'lines'})
     let html = Diff2Html.getPrettyHtml(outStr, {inputFormat: 'json', outputFormat: 'side-by-side', showFiles: false, matching: 'lines'})
