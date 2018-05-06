@@ -39,3 +39,6 @@ export default {
 ## 效果展示
 
 ![image](https://github.com/ddchef/vue-code-diff/blob/master/2018050615272.png?raw=true)
+
+## LICENSE
+[MIT](LICENSE)

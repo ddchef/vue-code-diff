@@ -1,6 +1,6 @@
 {
   "name": "vue-code-diff",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "代码比对展示(Code comparison display)",
   "author": "ddchef>",
   "private": false,
@@ -107,5 +107,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "license": "MIT"
 }
