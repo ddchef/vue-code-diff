@@ -1,9 +1,19 @@
 {
   "name": "vue-code-diff",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "ddchef <o.o@xjie.me>",
-  "private": true,
+  "version": "0.0.1",
+  "description": "代码比对展示(Code comparison display)",
+  "author": "ddchef>",
+  "private": false,
+  "main": "/dist/vue-code-diff.js",
+  "keywords":[
+    "vue",
+    "diff",
+    "code"
+  ],
+  "repository":{
+    "type": "git",
+    "url": "git+https://github.com/ddchef/vue-code-diff.git"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -29,6 +39,7 @@
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",

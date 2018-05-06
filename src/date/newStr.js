@@ -1,19 +1,24 @@
 export default `
-<html>
+'use strict'
+const utils = require('./utils')
+const config = require('../config')
+const isProduction = process.env.NODE_ENV === 'production'
+const sourceMapEnabled = isProduction
+  ? config.build.productionSourceMap
+  : config.dev.cssSourceMap
 
-<head>
-  <script type="text/javascript" src="loadxmldoc.js">
-</script>
-</head>
-
-<body>
-
-  <script type="text/javascript">
-    xmlDoc=loadXMLDoc("books.xml");
-    document.write("xmlDoc is loaded, ready for use");
-  </script>
-
-</body>
-
-</html>
+module.exports = {
+  loaders: utils.cssLoaders({
+    sourceMap: sourceMapEnabled,
+    extract: isProduction
+  }),
+  cssSourceMap: sourceMapEnabled,
+  cacheBusting: config.dev.cacheBusting,
+  transformToRequire: {
+    video: 'src',
+    source: 'src',
+    img: 'src',
+    image: 'xlink:href'
+  }
+}
 `

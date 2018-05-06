@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import codeDiff from './lib'
+import codeDiff from '../dist/vue-code-diff'
 import oldStr from './date/oldStr'
 import newStr from './date/newStr'
 export default {
