@@ -1,30 +1,41 @@
-# vue-code-diff
+# [vue-code-diff](https://www.npmjs.com/package/vue-code-diff)
 
-> A Vue.js project
+> 代码比对展示
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## 安装  
+```shell
+yarn add vue-code-diff
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 使用  
+```vue
+<template>
+  <div>
+    <code-diff :old-string="oldStr" :new-string="newStr" :context="10" />
+  </div>
+</template>
+
+import vueCodeDiff from 'vue-code-diff'
+export default {
+  components: {vueCodeDiff},
+  data(){
+    return {
+      oldStr: 'old code',
+      newStr: 'new code'
+    }
+  }
+}
+```
+
+## 参数说明 
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| old-string| 陈旧的字符串| string  |   —    |    —     |
+| new-string| 新的字符串| string  |   —    |    —     |
+| context| 不同地方上下间隔多少行不隐藏 | number  |   —    |    —     |
+
+
+## 效果展示
+
+![image](https://github.com/ddchef/vue-code-diff/blob/master/2018050615272.png?raw=true)
