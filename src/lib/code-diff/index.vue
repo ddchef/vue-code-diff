@@ -24,6 +24,10 @@ export default {
     context: {
       type: Number,
       default: 5
+    },
+    outputFormat: {
+      type: String,
+      default: 'line-by-line'
     }
   },
   directives: {
@@ -34,24 +38,21 @@ export default {
       })
     }
   },
-  data () {
-    return {
-      html: ''
+  computed: {
+    html () {
+      return this.createdHtml(this.oldString, this.newString, this.context, this.outputFormat)
     }
   },
-  computed: {
-  },
-  created () {
-    let args = ['', this.oldString, this.newString, '', '', {context: this.context}]
-    let dd = createPatch(...args)
-    let outStr = Diff2Html.getJsonFromDiff(dd, {inputFormat: 'diff', outputFormat: 'side-by-side', showFiles: false, matching: 'lines'})
-    let html = Diff2Html.getPrettyHtml(outStr, {inputFormat: 'json', outputFormat: 'side-by-side', showFiles: false, matching: 'lines'})
-    this.html = this.hljs(html)
-  },
   methods: {
-    hljs (html) {
-      html = html.replace(/<span class="d2h-code-line-ctn">(.+?)<\/span>/g, '<span class="d2h-code-line-ctn"><code>$1</code></span>')
-      return html
+    createdHtml (oldString, newString, context, outputFormat) {
+      function hljs (html) {
+        return html.replace(/<span class="d2h-code-line-ctn">(.+?)<\/span>/g, '<span class="d2h-code-line-ctn"><code>$1</code></span>')
+      }
+      let args = ['', oldString, newString, '', '', {context: context}]
+      let dd = createPatch(...args)
+      let outStr = Diff2Html.getJsonFromDiff(dd, {inputFormat: 'diff', outputFormat: outputFormat, showFiles: false, matching: 'lines'})
+      let html = Diff2Html.getPrettyHtml(outStr, {inputFormat: 'json', outputFormat: outputFormat, showFiles: false, matching: 'lines'})
+      return hljs(html)
     }
   }
 }
