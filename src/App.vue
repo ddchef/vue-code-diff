@@ -78,9 +78,9 @@ export default {
       localStorage.setItem('newStr', v)
     }
   },
-  mounted () {
-    this.oldStr = localStorage.getItem('oldStr')
-    this.newStr = localStorage.getItem('newStr')
+  created () {
+    this.oldStr = localStorage.getItem('oldStr') || ''
+    this.newStr = localStorage.getItem('newStr') || ''
   }
 }
 </script>
