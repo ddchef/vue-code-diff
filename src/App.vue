@@ -22,7 +22,7 @@
             ></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="8">
           <el-form-item label="展示效果：">
             <el-switch
               v-model="fotmat"
@@ -31,12 +31,17 @@
             ></el-switch>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="8">
           <el-form-item label="差异化范围：">
             <el-input-number
               v-model="context"
               placeholder=""
             ></el-input-number>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="清除缓存：">
+            <el-button type="text" @click="handleClearLocalStorage">清除</el-button>
           </el-form-item>
         </el-col>
       </el-row>
@@ -81,6 +86,14 @@ export default {
   created () {
     this.oldStr = localStorage.getItem('oldStr') || ''
     this.newStr = localStorage.getItem('newStr') || ''
+  },
+  methods: {
+    handleClearLocalStorage () {
+      this.newStr = ''
+      this.oldStr = ''
+      localStorage.setItem('newStr', '')
+      localStorage.setItem('oldStr', '')
+    }
   }
 }
 </script>
