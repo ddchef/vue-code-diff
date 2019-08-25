@@ -15,9 +15,9 @@ yarn add vue-code-diff
   </div>
 </template>
 
-import vueCodeDiff from 'vue-code-diff'
+import CodeDiff from 'vue-code-diff'
 export default {
-  components: {vueCodeDiff},
+  components: {CodeDiff},
   data(){
     return {
       oldStr: 'old code',
