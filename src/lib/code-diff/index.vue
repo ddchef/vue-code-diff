@@ -6,10 +6,10 @@
 
 <script>
 import {createPatch} from 'diff'
-import {Diff2Html} from 'diff2html'
+import * as Diff2Html from 'diff2html'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css'
-import 'diff2html/dist/diff2html.css'
+import 'diff2html/bundles/css/diff2html.min.css'
 export default {
   name: 'code-diff',
   props: {
@@ -28,6 +28,26 @@ export default {
     outputFormat: {
       type: String,
       default: 'line-by-line'
+    },
+    drawFileList: {
+      type: Boolean,
+      defalut: false
+    },
+    renderNothingWhenEmpty: {
+      type: Boolean,
+      default: false
+    },
+    diffStyle: {
+      type: String,
+      default: 'word'
+    },
+    fileName: {
+      type: String,
+      default: ''
+    },
+    isShowNoChange: {
+      type: Boolean,
+      default: false
     }
   },
   directives: {
@@ -40,18 +60,32 @@ export default {
   },
   computed: {
     html () {
-      return this.createdHtml(this.oldString, this.newString, this.context, this.outputFormat)
+      return this.createdHtml(this.oldString, this.newString, this.context, this.outputFormat, this.drawFileList, this.renderNothingWhenEmpty, this.fileName, this.isShowNoChange)
     }
   },
   methods: {
-    createdHtml (oldString, newString, context, outputFormat) {
+    createdHtml (oldString, newString, context, outputFormat, drawFileList, renderNothingWhenEmpty, fileName, isShowNoChange) {
       function hljs (html) {
         return html.replace(/<span class="d2h-code-line-ctn">(.+?)<\/span>/g, '<span class="d2h-code-line-ctn"><code>$1</code></span>')
       }
-      let args = ['', oldString, newString, '', '', {context: context}]
+      if (isShowNoChange) {
+        oldString = 'File Without Change\tOldString: ======================== \n' + oldString
+        newString = 'File Without Change\tNewString: ======================== \n' + newString
+      }
+      let args = [fileName, oldString, newString, '', '', {context: context}]
       let dd = createPatch(...args)
-      let outStr = Diff2Html.getJsonFromDiff(dd, {inputFormat: 'diff', outputFormat: outputFormat, showFiles: false, matching: 'lines'})
-      let html = Diff2Html.getPrettyHtml(outStr, {inputFormat: 'json', outputFormat: outputFormat, showFiles: false, matching: 'lines'})
+      let outStr = Diff2Html.parse(dd, {
+        inputFormat: 'diff',
+        outputFormat: outputFormat,
+        drawFileList: drawFileList,
+        matching: 'lines',
+        renderNothingWhenEmpty: renderNothingWhenEmpty})
+      let html = Diff2Html.html(outStr, {
+        inputFormat: 'json',
+        outputFormat: outputFormat,
+        drawFileList: drawFileList,
+        matching: 'lines',
+        renderNothingWhenEmpty: renderNothingWhenEmpty})
       return hljs(html)
     }
   }
