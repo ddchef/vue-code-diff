@@ -1,6 +1,6 @@
 {
   "name": "vue-code-diff",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0",
   "description": "代码比对展示(Code comparison display)",
   "author": "ddchef>",
   "private": false,
