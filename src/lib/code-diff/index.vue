@@ -92,14 +92,48 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .hljs{
   display: inline-block;
   padding: 0;
   background: transparent;
-  vertical-align:middle
+  vertical-align:middle;
+  height: 17px;
 }
-.d2h-file-header{
-  display: none
+.d2h-wrapper{
+  position: relative;
+}
+
+.d2h-wrapper .d2h-file-header{
+  display: none;
+}
+
+.d2h-wrapper .d2h-files-diff{
+  position: relative;
+}
+
+.d2h-wrapper .d2h-file-side-diff{
+  margin-bottom: -5px;
+}
+
+.d2h-wrapper .d2h-files-diff > .d2h-file-side-diff ~ .d2h-file-side-diff {
+  position: absolute;
+}
+
+.d2h-wrapper .d2h-code-side-emptyplaceholder {
+  max-height: 17px;
+}
+
+.d2h-wrapper .d2h-code-side-line,.d2h-wrapper .d2h-code-line {
+  display: block;
+  width: auto;
+}
+
+.d2h-wrapper .d2h-code-side-line.d2h-info {
+  height: 18px;
+}
+
+.d2h-wrapper .d2h-code-linenumber, .d2h-code-side-linenumber{
+  height: 19px;
 }
 </style>
