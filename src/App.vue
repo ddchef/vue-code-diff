@@ -1,27 +1,29 @@
 <template>
   <div>
-    <el-form>
+    <el-form label-width="100px" label-position="top">
       <el-row :gutter="10">
-        <el-col :span="12">
-          <el-form-item label="旧数据：">
-            <el-input
-              v-model="oldStr"
-              type="textarea"
-              :autosize="{minRows: 2, maxRows: 15}"
-              placeholder="请输入旧数据"
-            ></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="新数据：">
-            <el-input
-              v-model="newStr"
-              type="textarea"
-              :autosize="{minRows: 2, maxRows: 15}"
-              placeholder="请输入新数据"
-            ></el-input>
-          </el-form-item>
-        </el-col>
+        <el-row :gutter="10">
+          <el-col :span="12">
+            <el-form-item label="旧数据：">
+              <el-input
+                v-model="oldStr"
+                type="textarea"
+                :autosize="{minRows: 2, maxRows: 15}"
+                placeholder="请输入旧数据"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="新数据：">
+              <el-input
+                v-model="newStr"
+                type="textarea"
+                :autosize="{minRows: 2, maxRows: 15}"
+                placeholder="请输入新数据"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
         <el-col :span="8">
           <el-form-item label="展示效果：">
             <el-switch
