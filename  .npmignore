@@ -9,6 +9,9 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 .example/
+example/
+test/
+
 
 # Editor directories and files
 .idea

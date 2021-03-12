@@ -1,32 +1,18 @@
 {
-  "name": "vue-code-diff",
-  "version": "1.0.0-beta.0",
-  "description": "代码比对展示(Code comparison display)",
-  "author": "ddchef>",
+  "name": "example",
+  "version": "1.0.0",
+  "description": "demo",
+  "author": "ddchef",
   "private": false,
-  "main": "/dist/vue-code-diff.js",
-  "keywords": [
-    "vue",
-    "diff",
-    "code"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ddchef/vue-code-diff.git"
-  },
   "scripts": {
     "start": "node build/server.js",
     "build": "node build/build.js",
-    "start:example": "cross-env RUN_MODE=example npm run start",
-    "build:example": "cross-env RUN_MODE=example npm run build",
     "analyzer": "node build/build.js analyzer",
     "lint": "eslint --ext .js,.vue src --fix"
   },
   "dependencies": {
-    "diff": "^3.5.0",
-    "diff2html": "^3.3.1",
-    "highlight.js": "^9.18.5",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-code-diff": "1.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

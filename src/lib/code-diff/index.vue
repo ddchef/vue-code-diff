@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <div v-html="html" v-highlight></div>
+    <div
+      v-highlight
+      v-html="html"
+    />
   </div>
 </template>
 
 <script>
-import {createPatch} from 'diff'
+import { createPatch } from 'diff'
 import * as Diff2Html from 'diff2html'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css'
 import 'diff2html/bundles/css/diff2html.min.css'
 export default {
-  name: 'code-diff',
+  name: 'CodeDiff',
+  directives: {
+    highlight: function (el) {
+      const blocks = el.querySelectorAll('code')
+      blocks.forEach((block) => {
+        hljs.highlightBlock(block)
+      })
+    }
+  },
   props: {
     oldString: {
       type: String,
@@ -50,14 +61,6 @@ export default {
       default: false
     }
   },
-  directives: {
-    highlight: function (el) {
-      let blocks = el.querySelectorAll('code')
-      blocks.forEach((block) => {
-        hljs.highlightBlock(block)
-      })
-    }
-  },
   computed: {
     html () {
       return this.createdHtml(this.oldString, this.newString, this.context, this.outputFormat, this.drawFileList, this.renderNothingWhenEmpty, this.fileName, this.isShowNoChange)
@@ -72,20 +75,22 @@ export default {
         oldString = 'File Without Change\tOldString: ======================== \n' + oldString
         newString = 'File Without Change\tNewString: ======================== \n' + newString
       }
-      let args = [fileName, oldString, newString, '', '', {context: context}]
-      let dd = createPatch(...args)
-      let outStr = Diff2Html.parse(dd, {
+      const args = [fileName, oldString, newString, '', '', { context: context }]
+      const dd = createPatch(...args)
+      const outStr = Diff2Html.parse(dd, {
         inputFormat: 'diff',
         outputFormat: outputFormat,
         drawFileList: drawFileList,
         matching: 'lines',
-        renderNothingWhenEmpty: renderNothingWhenEmpty})
-      let html = Diff2Html.html(outStr, {
+        renderNothingWhenEmpty: renderNothingWhenEmpty
+      })
+      const html = Diff2Html.html(outStr, {
         inputFormat: 'json',
         outputFormat: outputFormat,
         drawFileList: drawFileList,
         matching: 'lines',
-        renderNothingWhenEmpty: renderNothingWhenEmpty})
+        renderNothingWhenEmpty: renderNothingWhenEmpty
+      })
       return hljs(html)
     }
   }
@@ -93,26 +98,27 @@ export default {
 </script>
 
 <style lang="postcss">
-.hljs{
+.hljs {
   display: inline-block;
   padding: 0;
   background: transparent;
-  vertical-align:middle;
+  vertical-align: middle;
   height: 17px;
 }
-.d2h-wrapper{
+
+.d2h-wrapper {
   position: relative;
 }
 
-.d2h-wrapper .d2h-file-header{
+.d2h-wrapper .d2h-file-header {
   display: none;
 }
 
-.d2h-wrapper .d2h-files-diff{
+.d2h-wrapper .d2h-files-diff {
   position: relative;
 }
 
-.d2h-wrapper .d2h-file-side-diff{
+.d2h-wrapper .d2h-file-side-diff {
   margin-bottom: -5px;
 }
 
@@ -124,7 +130,8 @@ export default {
   max-height: 17px;
 }
 
-.d2h-wrapper .d2h-code-side-line,.d2h-wrapper .d2h-code-line {
+.d2h-wrapper .d2h-code-side-line,
+.d2h-wrapper .d2h-code-line {
   display: block;
   width: auto;
 }
@@ -133,7 +140,8 @@ export default {
   height: 18px;
 }
 
-.d2h-wrapper .d2h-code-linenumber, .d2h-code-side-linenumber{
+.d2h-wrapper .d2h-code-linenumber,
+.d2h-code-side-linenumber {
   height: 19px;
 }
 </style>
