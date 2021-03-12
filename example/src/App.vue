@@ -106,15 +106,18 @@
       :file-name="fileName"
       :is-show-no-change="isShowNoChange"
     />
+    <corners />
   </div>
 </template>
 
 <script>
-import codeDiff from '../../dist/vue-code-diff'
+import codeDiff from 'vue-code-diff'
+import Corners from './corners'
 export default {
   name: 'App',
   components: {
-    codeDiff
+    codeDiff,
+    Corners
   },
   data () {
     return {

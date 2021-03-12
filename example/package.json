@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js,.vue src --fix"
   },
   "dependencies": {
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-code-diff": "1.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
