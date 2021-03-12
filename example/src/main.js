@@ -2,11 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import plugins from './plugins'
+import './element-variables.scss'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(plugins)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
