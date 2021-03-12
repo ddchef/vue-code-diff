@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import codeDiff from '../dist/vue-code-diff'
+import codeDiff from '../../dist/vue-code-diff'
 export default {
   name: 'App',
   components: {
