@@ -1,0 +1,31 @@
+{
+  "parser": "vue-eslint-parser", 
+  "extends": [
+      "eslint:recommended", 
+      "plugin:vue/recommended", 
+      "plugin:@typescript-eslint/recommended",
+      "standard-with-typescript"
+  ], 
+  "parserOptions": {
+      "parser": "babel-eslint", 
+      "sourceType": "module", 
+      "ecmaVersion": 2020, 
+      "ecmaFeatures": {
+          "jsx": true
+      }, 
+      "project": "./tsconfig.json"
+  }, 
+  "overrides": [
+      {
+          "files": [
+              "*.ts", 
+              "*.tsx"
+          ], 
+          "parser": "@typescript-eslint/parser"
+      }
+  ], 
+  "plugins": [
+      "vue", 
+      "@typescript-eslint"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "extends":[
+    "stylelint-config-standard",
+    "stylelint-config-rational-order"
+  ],
+  "plugins":[
+    "stylelint-scss"
+  ],
+  "rules":{
+    "no-missing-end-of-source-newline": null
+  },
+  "ignoreFiles": ["./node_modules/","./dist/"]
+}
