@@ -1,18 +1,14 @@
 {
   "example/**/*.{js,json,vue,ts,tsx}": [
-    "eslint --fix",
-    "git add"
+    "eslint --fix"
   ],
   "lib/**/*.{js,json,vue,ts,tsx}": [
-    "eslint --fix",
-    "git add"
+    "eslint --fix"
   ],
   "example/**/*.{css,less}": [
-    "stylelint --fix",
-    "git add"
+    "stylelint --fix"
   ],
   "lib/**/*.{css,less}": [
-    "stylelint --fix",
-    "git add"
+    "stylelint --fix"
   ]
 }
