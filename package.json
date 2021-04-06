@@ -19,7 +19,9 @@
     "build": "webpack --config ./server/config/webpack.common.js",
     "analyzer": "node server/build.js analyzer",
     "lint": "eslint --ext .js,.vue,.ts,.tsx src --fix",
-    "lintstyle": "eslint --ext .js,.vue,.ts,.tsx src --fix"
+    "stylelint": "eslint --ext .js,.vue,.ts,.tsx src --fix",
+    "precommit": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "typescript": "^4.2.3",
@@ -43,14 +45,15 @@
     "eslint": "^7.23.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-vue": "^7.8.0",
+    "eslint-webpack-plugin": "^2.5.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "get-port": "^5.1.1",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
     "lint-staged": "^10.5.4",
@@ -71,11 +74,6 @@
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e HUSKY_GIT_PARAMS"
-    }
   },
   "license": "MIT"
 }

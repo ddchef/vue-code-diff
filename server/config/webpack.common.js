@@ -2,6 +2,7 @@ const path = require('path')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const EslintPlugin = require('eslint-webpack-plugin')
 const {VueLoaderPlugin} = require('vue-loader')
 const basePath = process.cwd()
 module.exports = {
@@ -22,19 +23,6 @@ module.exports = {
         use:[
           {
             loader: 'vue-loader'
-          }
-        ]
-      },
-      {
-        test:/\.(jsx?)|(tsx?)$/,
-        exclude: /(node_modules)/,
-        enforce: 'pre',
-        use: [
-          {
-            loader: 'eslint-loader',
-            options:{
-              formatter: require('eslint-friendly-formatter')
-            }
           }
         ]
       },
@@ -76,6 +64,12 @@ module.exports = {
     }),
     new StyleLintPlugin({
       files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+    }),
+    new EslintPlugin({
+      extensions:['js','jsx','ts','tsx'],
+      formatter: require('eslint-friendly-formatter'),
+      lintDirtyModulesOnly: true,
+      threads: true
     })
   ]
 }
