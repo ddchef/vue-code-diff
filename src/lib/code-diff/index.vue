@@ -134,6 +134,7 @@ export default {
 .d2h-wrapper .d2h-code-line {
   display: block;
   width: auto;
+  /*padding: 0 0.5em;*/
 }
 
 .d2h-wrapper .d2h-code-side-line.d2h-info {
@@ -142,6 +143,8 @@ export default {
 
 .d2h-wrapper .d2h-code-linenumber,
 .d2h-code-side-linenumber {
+  /*position: relative;*/
+  /*display: table-cell;*/
   height: 19px;
 }
 </style>
