@@ -32,8 +32,7 @@ module.exports = () => ({
         ],
         exclude (filePath) {
           return (
-            /node_modules/.test(filePath) &&
-            !/@ailpha(\\|\/)ml/.test(filePath)
+            /node_modules/.test(filePath)
           )
         }
       },

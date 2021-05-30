@@ -12,7 +12,7 @@ module.exports = () => ({
   },
   output: {
     path: path.join(basePath, 'dist'),
-    filename: `static/js/[name].js`
+    filename: 'static/js/[name].js'
   },
   module: {
     rules: [
@@ -31,8 +31,7 @@ module.exports = () => ({
         ],
         exclude (filePath) {
           return (
-            /node_modules/.test(filePath) &&
-            !/@ailpha(\\|\/)ml/.test(filePath)
+            /node_modules/.test(filePath)
           )
         }
       },
