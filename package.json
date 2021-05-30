@@ -5,6 +5,7 @@
   "author": "ddchef>",
   "private": false,
   "main": "/dist/vue-code-diff.js",
+  "typings": "types/index.d.ts",
   "keywords": [
     "vue",
     "diff",
