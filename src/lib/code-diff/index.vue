@@ -127,7 +127,7 @@ export default {
 }
 
 .d2h-wrapper .d2h-code-side-emptyplaceholder {
-  max-height: 17px;
+  max-height: 19px;
 }
 
 .d2h-wrapper .d2h-code-side-line,
