@@ -16,14 +16,20 @@ import 'diff2html/bundles/css/diff2html.min.css'
 export default {
   name: 'CodeDiff',
   directives: {
-    highlight: function (el) {
-      const blocks = el.querySelectorAll('code')
-      blocks.forEach((block) => {
-        hljs.highlightBlock(block)
-      })
+    highlight: function (el, binding, vnode) {
+      if (vnode.context && vnode.context.useHightlight) {
+        const blocks = el.querySelectorAll('code')
+        blocks.forEach((block) => {
+          hljs.highlightBlock(block)
+        })
+      }
     }
   },
   props: {
+    useHightlight: {
+      type: Boolean,
+      defalut: false
+    },
     oldString: {
       type: String,
       default: ''
