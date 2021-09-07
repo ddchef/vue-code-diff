@@ -1,8 +1,8 @@
 {
-  "name": "vue-code-diff",
-  "version": "1.2.0",
-  "description": "代码比对展示(Code comparison display)",
-  "author": "ddchef>",
+  "name": "vue-code-diff-fan",
+  "version": "1.0.2",
+  "description": "代码比对展示(Code comparison display),高亮配置可选",
+  "author": "xiao_fan",
   "private": false,
   "main": "/dist/vue-code-diff.js",
   "typings": "types/index.d.ts",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ddchef/vue-code-diff.git"
+    "url": "git+https://github.com/airqqqqq/vue-code-diff.git"
   },
   "scripts": {
     "start": "node build/server.js",
@@ -110,11 +110,5 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "eslint --ext .js,.vue src"
-    }
-  },
   "license": "MIT"
 }
