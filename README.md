@@ -1,10 +1,10 @@
-# [vue-code-diff](https://www.npmjs.com/package/vue-code-diff)
+# [vue-code-diff-fan](https://www.npmjs.com/package/vue-code-diff-fan)
 
 > 代码比对展示 [demo](http://diff.xjie.me/)
 
 ## 安装
 ```shell
-yarn add vue-code-diff
+yarn add vue-code-diff-fan
 ```
 
 ## 使用
@@ -15,7 +15,7 @@ yarn add vue-code-diff
   </div>
 </template>
 
-import CodeDiff from 'vue-code-diff'
+import CodeDiff from 'vue-code-diff-fan'
 export default {
   components: {CodeDiff},
   data(){
@@ -40,15 +40,16 @@ export default {
 | diffStyle | 每行中对比差异级别 | string | word, char | word |
 | fileName | 文件名 | string | - |  |
 | isShowNoChange | 当无对比时展示源代码 | boolean | - | false |
+| useHightlight | 使用语法高亮 | boolean | - | false |
 
 
 ## 效果展示
 
 ### line-by-line
-![image](https://github.com/ddchef/vue-code-diff/blob/master/2018-06-01.png?raw=true)
+![image](https://github.com/airqqqqq/vue-code-diff/blob/master/2018-06-01.png?raw=true)
 
 ### side-by-side
-![image](https://github.com/ddchef/vue-code-diff/blob/master/2018050615272.png?raw=true)
+![image](https://github.com/airqqqqq/vue-code-diff/blob/master/2018050615272.png?raw=true)
 
 ## LICENSE
 [MIT](LICENSE)
