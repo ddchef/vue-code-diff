@@ -4,7 +4,7 @@
   "description": "代码比对展示(Code comparison display)",
   "author": "ddchef>",
   "private": false,
-  "main": "/dist/vue-code-diff.js",
+  "main": "dist/vue-code-diff.js",
   "typings": "types/index.d.ts",
   "keywords": [
     "vue",
